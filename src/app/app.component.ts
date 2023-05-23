@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   template: `
   <main>
     <header>
-      <img class="logo" src="..." alt="logo" aria-hidden="true">
+      <img class="logo" src="./assets/location-pin.svg" alt="logo" aria-hidden="true">
     </header>
     <section class="content">
       <router-outlet></router-outlet>
