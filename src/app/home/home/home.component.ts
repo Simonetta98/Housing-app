@@ -16,6 +16,7 @@ import { HouseLocation } from 'src/app/models/house-location';
       <section class="results">
         <app-location
         *ngFor="let house of houseLocationList"
+        [houseLocation]="house"
         ></app-location>
       </section>
     </section>
@@ -23,7 +24,6 @@ import { HouseLocation } from 'src/app/models/house-location';
   styleUrls: ['./home.component.scss']
 })
 
-//TODO input binding
 
 export class HomeComponent implements OnInit {
   houseLocationList: HouseLocation[] = [
