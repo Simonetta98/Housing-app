@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   selector: 'app-root',
   template: `
-  <main>
+  <main class="container">
     <header>
-      <img class="logo" src="./assets/location-pin.svg" alt="logo" aria-hidden="true">
+      <img class="logo" src="./assets/logo.svg" alt="logo" aria-hidden="true">
+      <h2>Housing</h2>
     </header>
     <section class="content">
       <router-outlet></router-outlet>

@@ -8,11 +8,13 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <section class="list">
-      <img [src]="houseLocation.photo" class="list-pic" alt="photo of {{houseLocation.name}}">
+    <section>
+      <div class="card mt-3" style="width: 28rem;">
+      <img [src]="houseLocation.photo" class="card-img-top" alt="photo of {{houseLocation.name}}">
       <h2 class="list-heading"> {{ houseLocation.name }}</h2>
       <p class="list-location">{{ houseLocation.city }}, {{ houseLocation.state }}</p>
       <a [routerLink]="['/details', houseLocation.id]">Learn More</a>
+      </div>
     </section>
   `,
   styleUrls: ['./location.component.scss']
