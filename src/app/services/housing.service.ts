@@ -3,6 +3,7 @@ import { HouseLocation } from '../models/house-location';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { HouseDto } from '../models/houseDTO';
 
 interface applicationData {
   firstName: string,
@@ -31,5 +32,8 @@ export class HousingService {
   }
   submitApplication(values: applicationData){
     console.log(values);
+  }
+  postHouseLocation(house: HouseDto): Observable<any>{
+    return this.http.post<any>(`${this.URL}`, house);
   }
 }

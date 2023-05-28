@@ -1,5 +1,5 @@
 {
-  "locations":[
+  "locations": [
     {
       "id": 0,
       "name": "Acme Fresh Start Housing",
@@ -99,6 +99,16 @@
       "availableUnits": 6,
       "wifi": true,
       "laundry": true
+    },
+    {
+      "name": "Texas Test Housing",
+      "city": "Texas",
+      "state": "TX",
+      "photo": "/assets/bernard-hermant-CLKGGwIBTaY-unsplash.jpg",
+      "availableUnits": 3,
+      "wifi": true,
+      "laundry": false,
+      "id": 10
     }
   ]
 }
