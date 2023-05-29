@@ -51,9 +51,9 @@ export class AddComponent implements OnInit {
     city: new FormControl('', Validators.required),
     state: new FormControl('', Validators.required),
     photo: new FormControl('', Validators.required),
-    availableUnits: new FormControl(null, Validators.required),
-    wifi: new FormControl(null, Validators.required),
-    laundry: new FormControl(null, Validators.required)
+    availableUnits: new FormControl('', Validators.required),
+    wifi: new FormControl('', Validators.required),
+    laundry: new FormControl('', Validators.required)
   })
 
   constructor(private housingSrv: HousingService) {
@@ -62,18 +62,18 @@ export class AddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  postHouse() {
+  postHouse(): void {
     let values = {
       name: this.postForm.value.name ?? '',
       city: this.postForm.value.city ?? '',
       state: this.postForm.value.state ?? '',
       photo: this.postForm.value.photo ?? '',
-      availableUnits: this.postForm.value.availableUnits ?? 0,
-      wifi: this.postForm.value.wifi ?? false,
-      laundry: this.postForm.value.laundry ?? false,
+      availableUnits: this.postForm.value.availableUnits ?? '',
+      wifi: this.postForm.value.wifi ?? '',
+      laundry: this.postForm.value.laundry ?? '',
     }
-    console.log(values)
-    this.housingSrv.postHouseLocation(values as HouseDto);
+    this.housingSrv.postHouseLocation(values as HouseDto).subscribe();
+    console.log('HOUSE:', values)
   };
 
 }

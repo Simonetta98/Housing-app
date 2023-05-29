@@ -69,7 +69,6 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.house)
   }
 
   submitApplication(){
