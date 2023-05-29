@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingService } from 'src/app/services/housing.service';
 import { HouseLocation } from 'src/app/models/house-location';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-delete',
@@ -26,7 +25,7 @@ export class DeleteComponent implements OnInit {
   }
 
   deleteHouse(id: number): void{
-   this.houseSrv.deleteHouseLocation(id).subscribe();
+   this.houseSrv.deleteHouseLocation(id).subscribe()
   }
 
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HouseLocation } from '../models/house-location';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HouseDto } from '../models/houseDTO';
 
 interface applicationData {
@@ -16,16 +16,24 @@ interface applicationData {
 })
 export class HousingService {
 
+  //TODO  BehaviourSubject implementation
+
   URL: string;
-  houseLocationList$: Observable<HouseLocation[]>;
+  //houseLocationList$: Observable<HouseLocation[]>;
+  private _houseLocationSubject = new BehaviorSubject<HouseLocation[]>([]);
+  houseLocationList$ = this._houseLocationSubject.asObservable();
 
   constructor(private http: HttpClient) {
      this.URL = environment.URl;
-     this.houseLocationList$ = this.getAllHouseLocations();
+   }
+
+   get houseLocationSubject(){
+    return this._houseLocationSubject;
    }
 
   getAllHouseLocations(): Observable<HouseLocation[]>{
-    return this.http.get<HouseLocation[]>(this.URL);
+    return this.http.get<HouseLocation[]>(this.URL).pipe(tap(data => this.houseLocationSubject.next(data)));
+    //return this.http.get<HouseLocation[]>(this.URL);
   }
   getHouseLocationById(id: number): Observable<HouseLocation>{
     return this.http.get<HouseLocation>(`${this.URL}/${id}`);
@@ -41,5 +49,11 @@ export class HousingService {
   }
   deleteHouseLocation(id: number): Observable<void>{
     return this.http.delete<void>(`${this.URL}/${id}`);
+  }
+  getHouseList() {
+    return this.houseLocationList$;
+  }
+  updateSource(newData: HouseLocation[]) {
+    this._houseLocationSubject.next(newData);
   }
 }

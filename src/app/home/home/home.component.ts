@@ -44,8 +44,12 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.loadData();
   }
 
+  loadData(){
+    this.housingSrv.getAllHouseLocations().subscribe();
+  }
   filterResults(text: string){
     if(text) {
       this.filteredLocationList$ = this.housingSrv.houseLocationList$.pipe(
