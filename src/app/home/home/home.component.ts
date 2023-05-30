@@ -48,8 +48,9 @@ export class HomeComponent implements OnInit {
   }
 
   loadData(){
-    this.housingSrv.getAllHouseLocations().subscribe();
+   this.housingSrv.getAllHouseLocations();
   }
+
   filterResults(text: string){
     if(text) {
       this.filteredLocationList$ = this.housingSrv.houseLocationList$.pipe(

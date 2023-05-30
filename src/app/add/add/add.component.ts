@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HousingService } from 'src/app/services/housing.service';
 import { HouseDto } from 'src/app/models/houseDTO';
-import { Observable } from 'rxjs';
-import { HouseLocation } from 'src/app/models/house-location';
 
 @Component({
   selector: 'app-add',
@@ -72,8 +70,9 @@ export class AddComponent implements OnInit {
       wifi: this.postForm.value.wifi ?? '',
       laundry: this.postForm.value.laundry ?? '',
     }
-    this.housingSrv.postHouseLocation(values as HouseDto).subscribe();
+    this.housingSrv.postHouseLocation(values as HouseDto).subscribe(()=> this.housingSrv.getAllHouseLocations());
     console.log('HOUSE:', values)
+    this.postForm.reset();
   };
 
 }

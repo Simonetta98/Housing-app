@@ -16,10 +16,7 @@ interface applicationData {
 })
 export class HousingService {
 
-  //TODO  BehaviourSubject implementation
-
   URL: string;
-  //houseLocationList$: Observable<HouseLocation[]>;
   private _houseLocationSubject = new BehaviorSubject<HouseLocation[]>([]);
   houseLocationList$ = this._houseLocationSubject.asObservable();
 
@@ -31,13 +28,14 @@ export class HousingService {
     return this._houseLocationSubject;
    }
 
-  getAllHouseLocations(): Observable<HouseLocation[]>{
-    return this.http.get<HouseLocation[]>(this.URL).pipe(tap(data => this.houseLocationSubject.next(data)));
-    //return this.http.get<HouseLocation[]>(this.URL);
+  getAllHouseLocations(){
+    return this.http.get<HouseLocation[]>(this.URL)
+           .subscribe(data=> this._houseLocationSubject.next(data));
   }
   getHouseLocationById(id: number): Observable<HouseLocation>{
     return this.http.get<HouseLocation>(`${this.URL}/${id}`);
   }
+  //TODO
   submitApplication(values: applicationData){
     console.log(values);
   }

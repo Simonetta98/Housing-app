@@ -25,7 +25,7 @@ export class DeleteComponent implements OnInit {
   }
 
   deleteHouse(id: number): void{
-   this.houseSrv.deleteHouseLocation(id).subscribe()
+   this.houseSrv.deleteHouseLocation(id).subscribe(()=> this.houseSrv.getAllHouseLocations())
   }
 
 }
