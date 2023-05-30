@@ -11,7 +11,7 @@ import { Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, LocationComponent, RouterModule],
   template: `
-    <section>
+    <section class="container main-section">
       <form role="search" class="d-flex">
         <input class="form-control me-2" type="text" placeholder="Filter by city" #filter>
         <button class="btn btn-outline-success" type="button" (click)="filterResults(filter.value)">Search</button>
@@ -24,10 +24,11 @@ import { Router, RouterModule } from '@angular/router';
         </svg>
       </button>
       </div>
-      <section class="d-flex flex-wrap justify-content-between">
+      <section class="row">
         <app-location
         *ngFor="let house of filteredLocationList$ | async"
         [houseLocation]="house"
+        class="col-md-6 mb-3 mb-sm-0"
         ></app-location>
       </section>
     </section>

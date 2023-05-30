@@ -1,6 +1,21 @@
-form{
+section{
   margin-top: 2rem;
-  div{
-    margin-bottom: 0.5rem;
+  form{
+    margin-top: 2rem;
+    div{
+      margin-bottom: 0.5rem;
+    }
+    h5{
+      img{
+        padding-bottom: 2px;
+      }
+    }
+  }
+  .alert-success{
+    img{
+      padding-bottom: 5px;
+      padding-left: 5px;
+    }
   }
 }
+
