@@ -29,7 +29,7 @@ export class HousingService {
    }
 
   getAllHouseLocations(){
-    return this.http.get<HouseLocation[]>(this.URL)
+    return this.http.get<HouseLocation[]>(this.URL + '?_sort=id&_order=desc')
            .subscribe(data=> this._houseLocationSubject.next(data));
   }
   getHouseLocationById(id: number): Observable<HouseLocation>{

@@ -10,12 +10,20 @@ import { DeleteComponent } from 'src/app/delete/delete/delete.component';
   imports: [CommonModule, RouterModule, DeleteComponent],
   template: `
     <section>
-      <div class="card mt-3">
+      <div class="card mt-3 shadow-lg">
       <app-delete [houseLocation]="houseLocation"></app-delete>
       <img [src]="houseLocation.photo" class="card-img-top" alt="photo of {{houseLocation.name}}">
-      <h2 class="list-heading"> {{ houseLocation.name }}</h2>
+      <div class="card-body">
+      <h3 class="list-heading"> {{ houseLocation.name }}</h3>
+      <div>
       <p class="list-location">{{ houseLocation.city }}, {{ houseLocation.state }}</p>
-      <a [routerLink]="['/details', houseLocation.id]">Learn More</a>
+      <img src="../assets/location.svg" alt="location-icon">
+      </div>
+      </div>
+      <a [routerLink]="['/details', houseLocation.id]" class="btn btn-success rounded-top-0">
+       Learn More
+       <img src="../assets/click.svg" alt="arrow-icon">
+      </a>
       </div>
     </section>
   `,

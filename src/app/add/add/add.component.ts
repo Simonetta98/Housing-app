@@ -15,7 +15,7 @@ import { HouseDto } from 'src/app/models/houseDTO';
       <strong>Successfully submitted</strong> <img src="../assets/house.svg" alt="house">
       </div>
 
-      <form [formGroup]="postForm" (submit)="onSubmit()">
+      <form [formGroup]="postForm" (submit)="onSubmit()" class="shadow-lg p-3 rounded-3">
         <h5>House Info <img src="../assets/info.svg" alt="info"></h5>
         <div>
         <input type="text" aria-label="house-name" class="form-control" placeholder="Name" formControlName="name" required>
